@@ -1,0 +1,22 @@
+
+.policy{
+    padding-left: 40px;
+    width: 85%;
+    padding-bottom: 80px;
+}
+
+.policy > * {
+    text-wrap:pretty;
+}
+
+.policy h2, .policy h3{
+    padding: 20px 0;
+}
+
+.policy p{
+    padding-left: 48px;
+    font-size: 16px;
+}
+
+
+

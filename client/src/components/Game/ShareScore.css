@@ -1,0 +1,25 @@
+
+button.share{
+    all: unset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 1px solid rgb(0, 0, 0);
+    background-color: rgb(250, 250, 250);
+    font-weight: bolder;
+    font-size: 1.6rem;
+    width: 220px;
+    height: 44px;
+    color: black;
+    user-select: none;
+    cursor: copy;
+    border-radius: 20px;
+    transition: all .2s;
+}
+
+button.share.clicked{
+    background-color: rgb(230, 230, 230);
+    width: 230px;
+    transition: all .2s;
+}

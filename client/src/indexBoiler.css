@@ -1,0 +1,44 @@
+@import "normalize.css";
+
+html {
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html,body {
+    width: 100%;
+}
+
+/* Base Styles */
+img, video, iframe {
+  max-inline-size: 100%;
+  block-size: auto;
+}
+
+body {
+  font-family: Verdana, Tahoma, sans-serif;
+  line-height: 1.25;
+}
+
+
+
+
+/* Mobile Styles */
+@media screen and (max-width: 650px) {
+
+
+}
+
+/* Desktop Styles */
+@media screen and (min-width: 651px) and (max-width: 1023px) {
+
+
+}
+
+
+

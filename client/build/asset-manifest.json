@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/static/css/main.4641d884.css",
+    "main.js": "/static/js/main.abb53763.js",
+    "static/media/Inter-slnt,wght.ttf": "/static/media/Inter-slnt,wght.aadb65ac45347ff46699.ttf",
+    "static/media/OpenSans-Italic-wdth,wght.ttf": "/static/media/OpenSans-Italic-wdth,wght.f72efa639bb45d29e62f.ttf",
+    "static/media/OpenSans-wdth,wght.ttf": "/static/media/OpenSans-wdth,wght.ceb05254cedfa895b512.ttf",
+    "static/media/RobotoMono-VariableFont_wght.ttf": "/static/media/RobotoMono-VariableFont_wght.e14e25b7c497634efdfe.ttf",
+    "static/media/Roboto-Medium.ttf": "/static/media/Roboto-Medium.7c8d04cd831df3033c8a.ttf",
+    "static/media/backspace.jpg": "/static/media/backspace.fb176fcb5817da12c049.jpg",
+    "static/media/perpetua_light.ttf": "/static/media/perpetua_light.4b20a1c23d17066c0c35.ttf",
+    "static/media/equals.png": "/static/media/equals.a3fe98a2a27a15cced3e.png",
+    "index.html": "/index.html",
+    "main.4641d884.css.map": "/static/css/main.4641d884.css.map",
+    "main.abb53763.js.map": "/static/js/main.abb53763.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4641d884.css",
+    "static/js/main.abb53763.js"
+  ]
+}

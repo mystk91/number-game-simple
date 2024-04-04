@@ -1,0 +1,188 @@
+:root {
+  --modal-background-color: rgb(90, 90, 90, 0.3);
+  --modal-panel-background-color: rgb(250, 250, 250);
+  --modal-border: 1px solid rgb(69, 69, 69);
+  --modal-border-radius: 6px;
+}
+
+.instructions-modal {
+  position: fixed;
+  z-index: 4;
+  background-color: var(--modal-background-color);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  overflow-y: scroll;
+  padding-bottom: 140px;
+}
+
+.instructions {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 340px;
+  height: max-content;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1.6rem;
+  text-align: left;
+  padding-left: 6px;
+  padding-bottom: 22px;
+  background-color: var(--modal-panel-background-color);
+  border: var(--modal-border);
+  border-radius: var(--modal-border-radius);
+  color: black;
+  top: 10px;
+  margin: auto;
+}
+
+.instructions > * {
+  margin: 2px;
+}
+
+.instructions-top {
+  display: flex;
+  justify-content: flex-end;
+  margin: 2px 0px 0px 0px;
+}
+
+.instructions-top button {
+  user-select: none;
+}
+
+.close-instructions {
+  all: unset;
+  height: max-content;
+  font-size: 2rem;
+  cursor: pointer;
+  font-family: sans-serif;
+  margin-right: 4px;
+  padding: 10px 10px 10px 16px;
+}
+
+.instructions .headline {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 2.4rem;
+  font-weight: bolder;
+  border-bottom: 2px solid black;
+  width: max-content;
+  margin-top: -28px;
+}
+
+.instructions-text {
+  margin: 3.5px 0px 3.5px 12px;
+}
+
+.instructions .game-example > .hint {
+  width: 46px;
+  background-size: auto 35px;
+}
+
+.game-example {
+  display: flex;
+  justify-content: center;
+  user-select: none;
+}
+
+.game-example > .digit, .game-example > .hint {
+  height: 52px;
+  line-height: 52px;
+  font-size: 3rem;
+  background-size: 52px 40px;
+}
+
+.game-example > .digit {
+  max-width: 40px;
+}
+
+.game-example .grey.higher,
+.game-example .grey.lower,
+.game-example .yellow.higher,
+.game-example .yellow.lower,
+.game-example .green.higher,
+.game-example .green.lower {
+  animation-duration: 0.6s;
+  animation-fill-mode: forwards;
+}
+
+.delay-0 {
+  animation-delay: 0.3s;
+}
+
+.delay-1 {
+  animation-delay: 0.5s;
+}
+
+.delay-2 {
+  animation-delay: 0.7s;
+}
+
+.delay-3 {
+  animation-delay: 0.9s;
+}
+
+.delay-4 {
+  animation-delay: 1.1s;
+}
+
+.delay-5 {
+  animation-delay: 1.3s;
+}
+
+.game-example .grey.higher {
+  animation-name: digits-grey-bounceUp;
+}
+
+.game-example .grey.lower {
+  animation-name: digits-grey-bounceDown;
+}
+
+.game-example .yellow.higher {
+  animation-name: digits-yellow-bounceUp;
+}
+
+.game-example .yellow.lower {
+  animation-name: digits-yellow-bounceDown;
+}
+
+.game-example .green.higher {
+  animation-name: digits-green-bounceUp;
+}
+
+.game-example .green.lower {
+  animation-name: digits-green-bounceDown;
+}
+
+.game-example .green.current-digit {
+  background-color: var(--green);
+  color: var(--textColorWhite);
+}
+
+.game-example .yellow.current-digit {
+  background-color: var(--yellow);
+  color: var(--textColorWhite);
+}
+
+.game-example .grey.current-digit {
+  background-color: var(--grey);
+  color: var(--textColorWhite);
+}
+
+.colors-example .current-digit {
+  border: 2px solid black !important;
+}
+
+.instructions hr {
+  margin: 3px 2px;
+}
+
+.hide-instructions {
+  display: none;
+}
+
+/* Mobile Styles */
+@media screen and (max-width: 650px) {
+}
+
+/* Desktop Styles */
+@media screen and (min-width: 651px) and (max-width: 1023px) {
+}

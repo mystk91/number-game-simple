@@ -1,0 +1,67 @@
+
+.login-button{
+    width: 64px;
+    height: 64px;
+    width: 280px;
+    height: 50px;
+    margin: 4px 0;
+    display: flex;
+    justify-content: center;
+    column-gap: 8%;
+    align-items: center;
+    font-family: Roboto-Medium;
+    border: .5px solid black;
+
+}
+
+.login-button img{
+    object-fit: cover;
+    width: 44px;
+    height: 44px;
+    margin: 2px;
+    padding: 4px;
+}
+
+.login-button span{
+    margin: auto 0 auto 6px;
+}
+
+.login-button.google{
+    background-color: #f5f5f5;
+    color: rgb(40, 40, 40);
+}
+
+.login-button.facebook{
+    background-color: rgba(24, 119, 242);
+    color: white;
+}
+
+.login-button.apple{
+    background-color: #424242;
+    color: white;
+}
+
+.login-button.twitter{
+    background-color: rgb(0, 0, 0);
+    color: white;
+}
+
+.login-button.twitter:hover{
+    background-color: rgb(35, 35, 35);
+}
+
+
+.login-button:hover{
+    filter:brightness(1.2);
+    cursor: pointer;
+}
+
+
+@font-face{
+    font-family: 'Roboto-Medium';
+    src: local("Roboto"),
+    url(../../fonts//Roboto/Roboto-Medium.ttf) format("truetype");
+    font-weight: 500;
+}
+
+

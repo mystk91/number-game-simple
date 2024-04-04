@@ -1,0 +1,101 @@
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html,body {
+    width: 100%;
+    height: 100%;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+img, video, iframe {
+  max-inline-size: 100%;
+  block-size: auto;
+}
+
+/* Fonts*/
+@font-face{
+    font-family: 'Inter';
+    src: local("Inter"),
+    url('./fonts/Inter-slnt,wght.ttf') format("truetype");
+    font-weight: 400;
+}
+
+@font-face{
+    font-family: 'OpenSansCondensed';
+    src: local("OpenSans"),
+    url('./fonts/OpenSans-wdth,wght.ttf') format("truetype");
+    font-weight: 400;
+    font-stretch: condensed;
+}
+
+@font-face{
+    font-family: 'OpenSans';
+    src: local("OpenSans"),
+    url('./fonts/OpenSans-wdth,wght.ttf') format("truetype");
+    font-weight: 400;
+}
+
+@font-face{
+    font-family: 'OpenSansItalic';
+    src: local("OpenSans"),
+    url('./fonts/OpenSans-Italic-wdth,wght.ttf') format("truetype");
+    font-weight: 500;
+    font-stretch: condensed;
+}
+
+@font-face{
+    font-family: 'Perpetua';
+    src: local("Perpetua"),
+    url('./fonts/perpetua_light.ttf') format("truetype");
+}
+
+@font-face{
+    font-family: 'Roboto_Mono';
+    src: local("Roboto_Mono"),
+    url('./fonts/Roboto_Mono/RobotoMono-VariableFont_wght.ttf') format("truetype");
+}
+
+
+nav {
+    font-family: OpenSansCondensed, Inter, sans-serif;
+    font-size: 2.2rem;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: Inter, sans-serif;
+}
+
+.infoText{
+    font-family: Perpetua, sans-serif;
+    font-size: 2.0rem;
+}
+
+
+/* Base Styles */
+body {
+    font-family: Inter, Verdana, sans-serif;
+    line-height: 1.25;
+    font-size: 1.8rem;
+}
+
+
+
+/* Mobile Styles */
+@media screen and (max-width: 650px) {
+
+
+}
+
+/* Desktop Styles */
+@media screen and (min-width: 651px) and (max-width: 1023px) {
+
+
+}

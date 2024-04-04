@@ -1,0 +1,15 @@
+@import "./normalize.css";
+@import "./custom.css";
+
+html,body {
+    width: 100%;
+}
+
+body {
+  line-height: 1.25;
+}
+
+img, video, iframe {
+  max-inline-size: 100%;
+  block-size: auto;
+}

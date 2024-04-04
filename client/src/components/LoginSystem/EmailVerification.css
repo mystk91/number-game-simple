@@ -1,0 +1,51 @@
+.loading-verification,
+.verify-success,
+.verify-failure {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading-verification > .loading-icon1-container,
+.verify-success-container,
+.verify-failure-container {
+  margin-top: 10vh;
+}
+
+.verify-success-container,
+.verify-failure-container {
+  width: 360px;
+  padding: 6px 0 20px 0;
+  background-color: var(--modal-panel-background-color);
+  border: var(--modal-border);
+  border-radius: var(--modal-border-radius);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: max-content;
+  color: black;
+  position: relative;
+  margin-top: 10vh;
+}
+
+.verify-success-message,
+.verify-failure-message {
+  font-size: 2rem;
+  width: 95%;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.verify-success-container .submit-btn {
+  height: 40px;
+  margin-top: 12px;
+  width: 280px;
+  border-radius: 20px;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  background-color: var(--navbar-background-color);
+}

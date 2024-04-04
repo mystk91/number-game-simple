@@ -1,0 +1,927 @@
+/*Variables */
+
+:root {
+  --grey: rgb(140, 140, 140);
+  --yellow: rgb(209, 177, 1);
+  --green: rgb(35, 166, 76);
+  --higherColor: rgb(150, 41, 41);
+  --lowerColor: rgb(67, 67, 96);
+  --textColorWhite: rgb(255, 255, 255);
+  --textShadowNumbers: -0.3px 0 black, 0 0.3px black, 0.3px 0 black,
+    0 -0.3px black;
+  --digitsHeight: 75px;
+  --backgroundColor-hint: rgb(225, 225, 225);
+  --arrow-color: rgb(120, 120, 120);
+  --dark-blue-text: rgb(10, 10, 47);
+}
+
+.game-container {
+  display: flex;
+  justify-content: center;
+  user-select: none;
+}
+
+.gameboard {
+  width: 360px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.current-row .digit,
+.current-row .hint {
+  border: 2px solid rgb(45, 45, 45);
+}
+
+.previous-row .digit,
+.previous-row .hint {
+  border: 2px solid rgb(45, 45, 45);
+}
+
+.digits-2 .new-row {
+  transition: border 1.3s 0.4s;
+}
+
+.digits-3 .new-row {
+  transition: border 1.45s 0.4s;
+}
+
+.digits-4 .new-row {
+  transition: border 1.6s 0.4s;
+}
+
+.digits-5 .new-row {
+  transition: border 1.75s 0.4s;
+}
+
+.digits-6 .new-row {
+  transition: border 1.9s 0.4s;
+}
+
+.digits-7 .new-row {
+  transition: border 2.05s 0.4s;
+}
+
+.rows span {
+  display: flex;
+  justify-content: center;
+  margin: 3px 0;
+}
+
+.digits {
+  display: flex;
+  width: 100%;
+}
+
+.digit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  line-height: max-content;
+  font-size: 5rem;
+  font-weight: bold;
+  width: 15%;
+}
+
+.digit,
+.hint {
+  height: calc(((100vh - 210px) / 6));
+  border: 4px solid rgb(200, 200, 200);
+  min-height: 60px;
+  max-height: var(--digitsHeight);
+  margin: 0 1px;
+  max-width: 60px;
+}
+
+.hint {
+  background-color: var(--backgroundColor-hint);
+  margin: 0 0 0 6px;
+  width: 60px;
+}
+
+.game-container .hint {
+  min-width: 52px;
+}
+
+.current-digit {
+  border: 4px solid rgb(45, 45, 45) !important;
+  transition: border 0.1s;
+}
+
+.previous-digit,
+.next-digit {
+  border: 2px solid rgb(45, 45, 45) !important;
+  transition: border 0.3s;
+}
+
+.previous-digit {
+  animation: 0.1s 0s animateDigit !important;
+}
+
+@keyframes animateDigit {
+  50% {
+    background-color: rgb(240, 240, 240);
+  }
+}
+
+/*Keyboard / number input */
+.keyboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.keyboard > * {
+  margin: 4px 0;
+}
+
+.number-inputs.disabled button,
+.enter-guess.disabled,
+.backspace.disabled {
+  pointer-events: none;
+  cursor: none;
+}
+
+.number-inputs {
+  display: flex;
+  justify-content: center;
+}
+
+.number-inputs button,
+.show-scores {
+  height: 64px;
+  width: 34px;
+  margin: 0 0.5px;
+  border-radius: 6px;
+  border: 1px solid rgb(178, 178, 178);
+  font-size: 4.2rem;
+  background-color: rgb(250, 250, 250);
+  color: black;
+  cursor: pointer;
+}
+
+.enter-guess,
+.reset-game,
+.bottom-message,
+.show-scores {
+  width: 288px;
+  height: 48px;
+  border-radius: 12px;
+  border: 1px solid rgb(178, 178, 178);
+  font-size: 2rem;
+  background-color: rgb(250, 250, 250);
+  color: black;
+}
+
+.enter-guess {
+  cursor: pointer;
+}
+
+.reset-game,
+.bottom-message {
+  animation: resetGameFlash 1s forwards;
+}
+
+.reset-game {
+  cursor: pointer;
+}
+
+.bottom-message,
+.reset-game {
+  width: 288px;
+  height: 48px;
+  border-radius: 12px;
+  border: 1px solid rgb(0, 0, 0);
+  background-color: rgb(250, 250, 250);
+  color: black;
+  font-size: 2.2rem;
+}
+
+.show-scores-container {
+  display: flex;
+  justify-content: center;
+  margin: 3px 0 8px;
+}
+
+.show-scores {
+  border: 1px solid black;
+  font-size: 2.2rem;
+  cursor: pointer;
+}
+
+.show-scores.float-down {
+  animation: showScoresButton 0.8s;
+}
+
+@keyframes showScoresButton {
+  0% {
+    position: relative;
+    bottom: 210px;
+  }
+  100% {
+    position: relative;
+    bottom: 0px;
+  }
+}
+
+@keyframes resetGameFlash {
+  0% {
+    filter: brightness(1);
+    color: black;
+  }
+  10% {
+    filter: brightness(0.7);
+  }
+  100% {
+    filter: brightness(1);
+    border: 3px solid black(178, 178, 178);
+  }
+}
+
+.keyboard .backspace {
+  background-image: url("../../../public/images/game/backspace.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: auto 32px;
+  width: 36px;
+}
+
+/* Handles the animations for when a guess is entered. */
+.keyboard .grey {
+  transition: color, text-shadow, background-color 0.4s;
+  transition-delay: 0.5s;
+  color: var(--textColorWhite);
+  text-shadow: var(--textShadowNumbers);
+  background-color: var(--grey);
+}
+
+.keyboard .yellow {
+  transition: color, text-shadow, background-color 0.4s;
+  transition-delay: 0.5s;
+  color: var(--textColorWhite);
+  text-shadow: var(--textShadowNumbers);
+  background-color: var(--yellow);
+}
+
+.keyboard .green {
+  transition: color, text-shadow, background-color 0.4s;
+  transition-delay: 0.5s;
+  color: var(--textColorWhite);
+  text-shadow: var(--textShadowNumbers);
+  background-color: var(--green);
+}
+
+.rows .grey.higher,
+.rows .grey.lower,
+.rows .yellow.higher,
+.rows .yellow.lower,
+.rows .green.higher,
+.rows .green.lower {
+  animation-duration: 0.6s;
+  animation-delay: 0.3s;
+  animation-fill-mode: forwards;
+}
+
+.rows .grey.higher {
+  animation-name: digits-grey-bounceUp;
+}
+
+.rows .grey.lower {
+  animation-name: digits-grey-bounceDown;
+}
+
+.rows .yellow.higher {
+  animation-name: digits-yellow-bounceUp;
+}
+
+.rows .yellow.lower {
+  animation-name: digits-yellow-bounceDown;
+}
+
+.rows .green.higher {
+  animation-name: digits-green-bounceUp;
+}
+
+.rows .green.lower {
+  animation-name: digits-green-bounceDown;
+}
+
+@keyframes digits-grey-bounceUp {
+  10% {
+    transform: translate3d(0, 0%, 0) scaleY(1);
+  }
+  50% {
+    border: 2px solid rgb(45, 45, 45);
+    background-color: white;
+    color: black;
+    transform: translate3d(0, -30%, 0) scaleY(0);
+  }
+  51% {
+    border: none;
+    background-color: var(--grey);
+    color: var(--textColorWhite);
+    text-shadow: var(--textShadowNumbers);
+    transform: translate3d(0, 20%, 0) scaleY(0);
+  }
+  100% {
+    border: none;
+    background-color: var(--grey);
+    color: var(--textColorWhite);
+    text-shadow: var(--textShadowNumbers);
+    transform: translate3d(0, 0, 0) scaleY(1);
+  }
+}
+
+@keyframes digits-grey-bounceDown {
+  10% {
+    transform: translate3d(0, 0%, 0) scaleY(1);
+  }
+  50% {
+    border: 2px solid rgb(45, 45, 45);
+    background-color: white;
+    color: black;
+    transform: translate3d(0, 30%, 0) scaleY(0);
+  }
+  51% {
+    border: none;
+    background-color: var(--grey);
+    color: var(--textColorWhite);
+    text-shadow: var(--textShadowNumbers);
+  }
+  100% {
+    border: none;
+    background-color: var(--grey);
+    color: var(--textColorWhite);
+    text-shadow: var(--textShadowNumbers);
+    transform: translate3d(0, 0, 0) scaleY(1);
+  }
+}
+
+@keyframes digits-yellow-bounceUp {
+  10% {
+    transform: translate3d(0, 0%, 0) scaleY(1);
+  }
+  50% {
+    border: 2px solid rgb(45, 45, 45);
+    background-color: white;
+    color: black;
+    transform: translate3d(0, -30%, 0) scaleY(0);
+  }
+  51% {
+    border: none;
+    background-color: var(--yellow);
+    color: var(--textColorWhite);
+    text-shadow: var(--textShadowNumbers);
+    transform: translate3d(0, 20%, 0) scaleY(0);
+  }
+  100% {
+    border: none;
+    background-color: var(--yellow);
+    color: var(--textColorWhite);
+    text-shadow: var(--textShadowNumbers);
+    transform: translate3d(0, 0, 0) scaleY(1);
+  }
+}
+
+@keyframes digits-yellow-bounceDown {
+  10% {
+    transform: translate3d(0, 0%, 0) scaleY(1);
+  }
+  50% {
+    border: 2px solid rgb(45, 45, 45);
+    background-color: white;
+    color: black;
+    transform: translate3d(0, 30%, 0) scaleY(0);
+  }
+  51% {
+    border: none;
+    background-color: var(--yellow);
+    color: var(--textColorWhite);
+    text-shadow: var(--textShadowNumbers);
+  }
+  100% {
+    border: none;
+    background-color: var(--yellow);
+    color: var(--textColorWhite);
+    text-shadow: var(--textShadowNumbers);
+    transform: translate3d(0, 0, 0) scaleY(1);
+  }
+}
+
+@keyframes digits-green-bounceUp {
+  10% {
+    transform: translate3d(0, 0%, 0) scaleY(1);
+  }
+  50% {
+    border: 2px solid rgb(45, 45, 45);
+    background-color: white;
+    color: black;
+    transform: translate3d(0, -30%, 0) scaleY(0);
+  }
+  51% {
+    border: none;
+    background-color: var(--green);
+    color: var(--textColorWhite);
+    text-shadow: var(--textShadowNumbers);
+    transform: translate3d(0, 20%, 0) scaleY(0);
+  }
+  100% {
+    border: none;
+    background-color: var(--green);
+    color: var(--textColorWhite);
+    text-shadow: var(--textShadowNumbers);
+    transform: translate3d(0, 0, 0) scaleY(1);
+  }
+}
+
+@keyframes digits-green-bounceDown {
+  10% {
+    transform: translate3d(0, 0%, 0) scaleY(1);
+  }
+  50% {
+    border: 2px solid rgb(45, 45, 45);
+    background-color: white;
+    color: black;
+    transform: translate3d(0, 30%, 0) scaleY(0);
+  }
+  51% {
+    border: none;
+    background-color: var(--green);
+    color: var(--textColorWhite);
+    text-shadow: var(--textShadowNumbers);
+  }
+  100% {
+    border: none;
+    background-color: var(--green);
+    color: var(--textColorWhite);
+    text-shadow: var(--textShadowNumbers);
+    transform: translate3d(0, 0, 0) scaleY(1);
+  }
+}
+
+.hint.higher {
+  animation-name: higher;
+  animation-duration: 0.4s;
+  animation-fill-mode: forwards;
+  transition: background-color, border 0.2s;
+  background-image: url("../../../public/images/game/upArrow.png");
+  background-position: center center;
+  background-size: auto 52px;
+  background-repeat: no-repeat;
+  background-color: var(--higherColor);
+}
+
+.hint.lower {
+  animation-name: lower;
+  animation-duration: 0.4s;
+  animation-fill-mode: forwards;
+  transition: background-color, border 0.2s;
+  background-image: url("../../../public/images/game/downArrow.png");
+  background-position: center center;
+  background-size: auto 52px;
+  background-repeat: no-repeat;
+  background-color: var(--lowerColor);
+}
+
+@keyframes lower {
+  0% {
+    background-position: 50% -100%;
+  }
+  75% {
+    background-position: 50% 75%;
+  }
+  100% {
+    background-position: center center;
+    border: none;
+  }
+}
+
+@keyframes higher {
+  0% {
+    background-position: 50% 200%;
+  }
+  75% {
+    background-position: 50% 25%;
+  }
+  100% {
+    background-position: center center;
+    border: none;
+  }
+}
+
+.digit.equals {
+  animation-name: equals;
+  animation-duration: 0.4s;
+  animation-delay: 0.3s;
+  animation-fill-mode: forwards;
+}
+
+.hint.equals {
+  animation-name: equals;
+  animation-duration: 0.4s;
+  animation-fill-mode: forwards;
+  background-image: url("../../../public/images/game/equals.png");
+  transition: background-color, border 0.4s;
+  background-position: center center;
+  background-size: auto 60px;
+  background-repeat: no-repeat;
+}
+
+@keyframes equals {
+  0% {
+    background-position: 50% 50%;
+    background-size: auto 10px;
+  }
+  50% {
+    color: var(--textColorWhite);
+    text-shadow: var(--textShadowNumbers);
+    border: none;
+  }
+  75% {
+    font-size: 7rem;
+    background-position: 50% 25%;
+    background-size: auto 100px;
+  }
+  100% {
+    font-size: 5rem;
+    background-position: center center;
+    background-size: auto 60px;
+    background-color: var(--green);
+    color: var(--textColorWhite);
+    text-shadow: var(--textShadowNumbers);
+    border: none;
+  }
+}
+
+/*Handle the keydown animation*/
+.number-input.keydown,
+.backspace.keydown {
+  animation-name: keydown;
+  animation-duration: 0.5s;
+}
+
+.enter-guess.keydown {
+  animation-name: keydown;
+  animation-duration: 0.3s;
+}
+
+.show-scores.keydown {
+  animation-name: keydown;
+  animation-duration: 0.3s;
+}
+
+@keyframes keydown {
+  0%,
+  100% {
+  }
+  50% {
+    filter: brightness(0.9);
+  }
+}
+
+/*Error Messages */
+.error-messages {
+  position: absolute;
+  inset: 250px 50% 0% 0%;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  width: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.error-message {
+  opacity: 0;
+  align-items: center;
+  border-radius: 40px;
+  margin: 4px;
+  height: 40px;
+  width: max-content;
+  padding: 20px;
+  font-size: 2.2rem;
+  color: rgb(255, 255, 255);
+  text-shadow: var(--textShadowNumbers);
+  background-color: rgb(178, 60, 31);
+  border: 2px solid rgb(0, 0, 0);
+  animation: 1.5s errorMessageFade;
+  display: flex;
+  align-items: center;
+}
+
+@keyframes errorMessageFade {
+  20% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+}
+
+.error-animation {
+  animation: 0.6s error-animation;
+}
+
+@keyframes error-animation {
+  0% {
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+  14.3% {
+    padding-right: 10px;
+    padding-left: 0px;
+  }
+  28.6% {
+    padding-right: 0px;
+    padding-left: 10px;
+  }
+  42.9% {
+    padding-right: 10px;
+    padding-left: 0px;
+  }
+  57.1% {
+    padding-right: 0px;
+    padding-left: 10px;
+  }
+  71.4% {
+    padding-right: 10px;
+    padding-left: 0px;
+  }
+  85.7% {
+    padding-right: 0px;
+    padding-left: 10px;
+  }
+  100% {
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+}
+
+.ad-modal {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  z-index: 3;
+  top: 0px;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.ad-modal-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(245, 245, 245);
+  border: 1px solid black;
+  padding: 10px 0 0 0;
+  width: 350px;
+  height: max-content;
+  position: absolute;
+  top: 4%;
+}
+
+.defeat-modal,
+.victory-modal {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  top: 0px;
+  left: calc(50% - 175px);
+  background-color: rgb(245, 245, 245);
+  border: 1px solid black;
+  border-top: none;
+  padding: 10px 0 0 0;
+  z-index: 1;
+  width: 350px;
+}
+
+.defeat-modal > *,
+.victory-modal > *,
+.ad-modal-box > * {
+  margin: 1px 0;
+  font-size: 1.8rem;
+}
+
+.defeat-modal-top,
+.victory-modal-top,
+.ad-modal-top {
+  display: flex;
+  justify-content: flex-end;
+  margin: 1px 0px 0px 0px;
+  width: 100%;
+}
+
+.defeat-modal-top button,
+.victory-modal-top button,
+.ad-modal-top button {
+  user-select: none;
+}
+
+.close-defeat-modal,
+.close-victory-modal,
+.close-ad-modal {
+  all: unset;
+  height: max-content;
+  font-size: 2rem;
+  cursor: pointer;
+  font-family: sans-serif;
+  margin-right: 4px;
+  padding: 2px 6px 4px 8px;
+}
+
+.defeat-label,
+.victory-label {
+  font-size: 2.8rem;
+  font-weight: bolder;
+  padding: 0 6px;
+  height: 30px;
+  margin: -24px 0 8px 0;
+  color: rgb(18, 18, 55);
+}
+
+.game-over-hr {
+  height: 2px;
+  width: 90%;
+  background-color: black;
+  margin: 10px 0 0 2px;
+}
+
+.correct-number {
+  font-size: 2.4rem;
+}
+
+.correct-number .gameboard {
+  width: 340px;
+}
+
+.correct-number .digit {
+  height: var(--digitsHeight);
+}
+
+.victory-row > div {
+  border: none;
+  background-color: var(--green);
+  color: var(--textColorWhite);
+  text-shadow: var(--textShadowNumbers);
+}
+
+.share-score-container {
+  margin-top: 12px;
+}
+
+.hide {
+  display: none;
+}
+.keyboard-bottom {
+  display: flex;
+  align-items: center;
+  column-gap: 24px;
+  transition: 0.2s column-gap;
+}
+
+.arrow-left,
+.arrow-right {
+  all: unset;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+  font-size: 2rem;
+  background-size: cover;
+  text-decoration: none;
+  color: rgb(245, 245, 245);
+}
+
+.arrow-left:hover,
+.arrow-right:hover {
+  filter: brightness(1.3);
+}
+
+.arrow-left > div {
+  text-decoration: none;
+  color: rgb(245, 245, 245);
+  padding-left: 12px;
+}
+
+.arrow-right > div {
+  text-decoration: none;
+  color: rgb(245, 245, 245);
+  padding-right: 12px;
+}
+
+.ad-modal-box .confirmation-btn {
+  margin: 3px 0 12px;
+}
+
+/* Even Smaller Style */
+@media screen and (max-width: 379px) {
+  .number-inputs button {
+    width: 33px;
+    margin: 0 1px;
+  }
+  .keyboard-bottom {
+    column-gap: 2px;
+    transition: 0.2s column-gap;
+  }
+}
+
+/* Typical Phone Style */
+@media screen and (min-width: 380px) and (max-width: 419px) {
+  .number-inputs button {
+    width: 35.5px;
+    margin: 0 1px;
+  }
+
+  .keyboard-bottom {
+    column-gap: 6px;
+    transition: 0.2s column-gap;
+  }
+}
+
+.number-game .keyboard-bottom .backspace {
+  background-image: url("../../../public/images/game/backspace.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: auto 32px;
+  width: 60px;
+  height: 48px;
+  margin: 0 0;
+  border-radius: 6px;
+  border: 1px solid rgb(178, 178, 178);
+  background-color: rgb(250, 250, 250);
+  color: black;
+  cursor: pointer;
+  border-radius: 12px;
+}
+
+.keyboard-bottom {
+  display: flex;
+  align-items: center;
+  column-gap: 6px;
+  transition: 0.2s column-gap;
+}
+
+/* Mid-size Styles */
+@media screen and (min-width: 420px) and (max-width: 510px) {
+  .gameboard {
+    width: 410px;
+    transition: 0.2s width;
+  }
+  .number-inputs button {
+    width: 36px;
+    margin: 0 2px;
+    transition: 0.2s width;
+  }
+  .keyboard .backspace {
+    width: 38.4px;
+    transition: 0.2s width;
+  }
+
+  .keyboard-bottom {
+    column-gap: 8px;
+    transition: 0.2s column-gap;
+  }
+}
+
+/* Mid-size Styles */
+@media screen and (min-width: 510px) and (max-width: 620px) {
+  .gameboard {
+    width: 510px;
+    transition: 0.2s width;
+  }
+  .number-inputs button {
+    width: 40px;
+    margin: 0 2px;
+    transition: 0.2s width;
+  }
+  .keyboard .backspace {
+    width: 48px;
+    transition: 0.2s width;
+  }
+}
+
+/* Desktop Styles */
+@media screen and (min-width: 620px) {
+  .gameboard {
+    width: 620px;
+    transition: 0.2s width;
+  }
+  .number-inputs button {
+    width: 40px;
+    margin: 0 2px;
+    transition: 0.2s width;
+  }
+  .keyboard .backspace {
+    width: 48px;
+    transition: 0.2s width;
+  }
+}
