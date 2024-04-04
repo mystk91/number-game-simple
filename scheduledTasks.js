@@ -91,8 +91,9 @@ function scheduledTasks(app, mongoClient) {
   createDailyGames.start();
 
   //Updates the leaderboards for each random category on an hourly basis
-  let updateLeaderboards = nodeCron.schedule(
-    `*/5 * * * *`,
+  // let updateLeaderboards = nodeCron.schedule(
+  //`*/5 * * * *`,
+  /*
     async () => {
       const accountsDb = mongoClient.db("Accounts");
       let accounts = accountsDb.collection(`Accounts`);
@@ -174,6 +175,7 @@ function scheduledTasks(app, mongoClient) {
       timezone: "America/New_York",
     }
   );
+  */
 
   updateLeaderboards.start();
 

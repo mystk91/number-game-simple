@@ -236,7 +236,7 @@ function paymentRequests(app, bodyParser, mongoClient) {
 
           const mailOptions = {
             from: `"Numbler" <noreply@numbler.net>`,
-            to: "someAdminEmail@numbler.net",
+            to: "contact@numbler.net",
             subject: "Random Mode Signup Error",
             html: `</p> Something went wrong for someone signing up to random mode. </p> 
             <p>Their user id was ${_id} </p>

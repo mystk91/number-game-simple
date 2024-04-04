@@ -355,7 +355,7 @@ function accountRequests(app, mongoClient) {
       });
 
       const mailOptions = {
-        from: `"Numbler - Password Reset" <noreply@numbler.net>`,
+        from: `"Numbler" <noreply@numbler.net>`,
         to: req.body.email,
         subject: "Numbler Password Rest",
         html: `</p> You have requsted a password reset, but you do not have a Numbler account associated with this email. </p> 
@@ -409,7 +409,7 @@ function accountRequests(app, mongoClient) {
         });
 
         const mailOptions = {
-          from: `"Numbler - Reset Password" <noreply@numbler.net>`,
+          from: `"Numbler" <noreply@numbler.net>`,
           to: req.body.email.toLowerCase(),
           subject: "Numbler Password Reset",
           html: `<p>Click here to reset your password. If you didn't request a password reset, you can ignore this. </p>
