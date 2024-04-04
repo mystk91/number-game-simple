@@ -14,7 +14,6 @@ const routes = [
   { path: '/digits7'},
   { path: '/login'},
   { path: '/signup'},
-  { path: '/leaderboards'},
 ];
 
 
