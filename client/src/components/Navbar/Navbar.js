@@ -35,7 +35,7 @@ function Navbar(props) {
       setInvisibleLogin(" invisible");
     }
     */
-    addInstructions();
+    setTimeout(addInstructions, 1250);
     addProfileButton();
     highlightDigitButton();
     setGameModesButton(gameModesButtonHTML);
