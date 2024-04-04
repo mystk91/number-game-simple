@@ -51,6 +51,7 @@
 .game-modes li {
   list-style: none;
   border: 0.5px solid black;
+  border-top: none;
   text-align: center;
   height: 56px;
   display: flex;
