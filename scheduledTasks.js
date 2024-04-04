@@ -175,14 +175,13 @@ function scheduledTasks(app, mongoClient) {
       timezone: "America/New_York",
     }
   );
-  */
 
   updateLeaderboards.start();
+  */
 
   //Removes all accounts that haven't been active in the past day and moves them to Inactive so they don't dillute the session queries
-  //let moveInactiveAccounts = nodeCron.schedule(`0 1 * * *`, async () => {
   let moveInactiveAccounts = nodeCron.schedule(
-    `*/3 * * * *`,
+    `0 3 * * *`,
     async () => {
       const accountsDb = mongoClient.db("Accounts");
       let accounts = accountsDb.collection(`Accounts`);
