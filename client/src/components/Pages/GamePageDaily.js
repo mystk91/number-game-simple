@@ -64,11 +64,11 @@ function GamePageDaily(props) {
           <Helmet>
             <meta
               name="description"
-              content={`A ${props.digits}-digit number guessing game. Use hints to zero in on the correct number!`}
+              content={`A number guessing game. Use hints to zero in on the correct number!`}
             />
             <meta
               name="keywords"
-              content="numbler, game, number game, number games, guessing game, guessing games, number guessing game, logic game, logic games, math game, math games, strategy game, strategy games, guess the number,  guess a number, puzzle, math puzzle, puzzle game, puzzle games"
+              content="numbler, numbler game, game, number game, number games, guessing game, guessing games, number guessing game, logic game, logic games, math game, math games, strategy game, strategy games, guess the number,  guess a number, puzzle, math puzzle, puzzle game, puzzle games"
             />
           </Helmet>
           <NavbarDynamic digits={props.digits} user={user} />
@@ -86,11 +86,11 @@ function GamePageDaily(props) {
           <Helmet>
             <meta
               name="description"
-              content={`A ${props.digits}-digit number guessing game. Use hints to zero in on the correct number!`}
+              content={`A number guessing game. Use hints to zero in on the correct number!`}
             />
             <meta
               name="keywords"
-              content="numbler, game, number game, number games, guessing game, guessing games, number guessing game, logic game, logic games, math game, math games, strategy game, strategy games, guess the number,  guess a number, puzzle, math puzzle, puzzle game, puzzle games"
+              content="numbler, numbler game, game, number game, number games, guessing game, guessing games, number guessing game, logic game, logic games, math game, math games, strategy game, strategy games, guess the number,  guess a number, puzzle, math puzzle, puzzle game, puzzle games"
             />
           </Helmet>
           <Navbar digits={props.digits} user={user} />

@@ -63,7 +63,7 @@ button.daily-stats.clicked {
 
 .statistics h1 {
   margin: 6px 0 10px 4px;
-  color: var(--dark-blue-text);
+  color: black;
 }
 
 .stats-game-mode {
@@ -459,6 +459,10 @@ button.reset-stats:hover {
   margin: 12px 4px 0 4px;
 }
 
+.reset-btn:hover, .cancel-btn:hover {
+  filter: brightness(.8);
+}
+
 .reset-confirmation-btns > button {
   border: 0.8px solid black;
 }
@@ -471,7 +475,7 @@ button.reset-stats:hover {
 
 .account-settings h1 {
   padding-left: 10px;
-  color: var(--dark-blue-text);
+  color: black;
 }
 
 .account-settings main {
